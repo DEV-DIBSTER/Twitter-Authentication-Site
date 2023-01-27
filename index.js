@@ -1,5 +1,6 @@
 const ExpressJS = require('express');
 const Session = require('express-session');
+const Execute = require('child_process').exec;
 
 const CallbackRouter = require('./src/routes/callback.js');
 //const PinRouter = require('./src/routes/pin.js');
@@ -14,6 +15,21 @@ AuthSite.use(Session({
     cookie: { secure: false }
 }));
 
+setInterval(() => {
+        Execute(`git pull`, async (Error, Stdout) => {
+            let Response = (Error || Stdout);
+            if (!Error) {
+                if (Response.includes("Already up to date.")) {
+                
+                } else {
+                    setTimeout(() => {
+                        process.exit();
+                    }, 1000);
+                };
+            };
+        });
+}, 60 * 1000);
+
 AuthSite.use(CallbackRouter);
 //AuthSite.use(PinRouter);
 
@@ -23,5 +39,5 @@ AuthSite.use((Error, Request, Response, Next) => {
 });
 
 AuthSite.listen(Configuration.Port, () => {
-    console.log(`[Twitter Authentication] Twitter Authentication is online at http://127.0.0.1:${Configuration.Port}`);
+    console.log(`[Twitter Authentication] Twitter Authentication is online at ${Configuration.Secure ? "https" : "http"}://${Configuration.Secure == true ? Configuration.SiteURL : `127.0.0.1:${Configuration.Port}`}`);
 });
