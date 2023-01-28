@@ -8,7 +8,7 @@ const { AsyncWrapOrError } = require('../misc/utils.js');
 const CallbackRouter = Router();
 
 CallbackRouter.get('/', AsyncWrapOrError(async (Request, Response) => {
-    const Link = await RequestClient.generateAuthLink(`${Configuration.Secure ? "https" : "http"}:${Configuration.Secure == true ? Configuration.SiteURL : `localhost:${Configuration.Port}`}/callback`);
+    const Link = await RequestClient.generateAuthLink(`${Configuration.Secure ? "https" : "http"}://${Configuration.Secure == true ? Configuration.SiteURL : `localhost:${Configuration.Port}`}/callback`);
 
     Request.session.oauthToken = Link.oauth_token;
     Request.session.oauthSecret = Link.oauth_token_secret;
