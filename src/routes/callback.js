@@ -16,6 +16,10 @@ CallbackRouter.get('/', AsyncWrapOrError(async (Request, Response) => {
     Response.render('index', { authLink: Link.url, authMode: 'callback' });
 }));
 
+CallbackRouter.get('/online', AsyncWrapOrError(async (Request, Response) => {
+    Response.status(200).send('Indeed!');
+}));
+
 CallbackRouter.get('/callback', AsyncWrapOrError(async (Request, Response) => {
     if (!Request.query.oauth_token || !Request.query.oauth_verifier) {
         Response.status(400).render('error', { error: 'Bad request, or you denied application access. Please renew your request.' });
