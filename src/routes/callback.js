@@ -1,4 +1,3 @@
-const ExpressJS = require('express');
 const Router = require('express').Router;
 const TwitterAPI = require('twitter-api-v2').TwitterApi;
 const Configuration = require('../../config.json');
