@@ -6,17 +6,13 @@ const { AsyncWrapOrError } = require('../misc/utils.js');
 
 const CallbackRouter = Router();
 
-CallbackRouter.get('/', AsyncWrapOrError(async (Request, Response) => {
+CallbackRouter.get('/callback-authorize', AsyncWrapOrError(async (Request, Response) => {
     const Link = await RequestClient.generateAuthLink(`${Configuration.Secure ? "https" : "http"}://${Configuration.Secure == true ? Configuration.SiteURL : `localhost:${Configuration.Port}`}/callback`);
 
     Request.session.oauthToken = Link.oauth_token;
     Request.session.oauthSecret = Link.oauth_token_secret;
 
-    Response.render('index', { authLink: Link.url, authMode: 'callback' });
-}));
-
-CallbackRouter.get('/online', AsyncWrapOrError(async (Request, Response) => {
-    Response.status(200).send('Indeed!');
+    Response.render('callback-authorize', { authLink: Link.url, authMode: 'callback' });
 }));
 
 CallbackRouter.get('/callback', AsyncWrapOrError(async (Request, Response) => {
@@ -29,13 +25,15 @@ CallbackRouter.get('/callback', AsyncWrapOrError(async (Request, Response) => {
     const verifier = Request.query.oauth_verifier;
     const SavedToken = await Request.session.oauthToken;
     const SavedSecret = await Request.session.oauthSecret;
+
+    console.log(Request.session);
     
     if (!SavedToken || !SavedSecret || SavedToken !== Token) {
         Response.status(400).render('error', { error: 'OAuth token is not known or invalid. Your request may have expire. Please renew the auth process.' });
         return;
     };
     
-      // Build a temporary client to get access token
+    // Build a temporary client to get access token.
     const TemporaryClient = new TwitterAPI({
         appKey: Configuration.ConsumerToken,
         appSecret: Configuration.ConsumerSecret,

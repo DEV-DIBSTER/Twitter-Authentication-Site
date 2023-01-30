@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Twitter Auth - Home</title>
+  <title>Twitter API OAuth flow test</title>
+  <link rel="stylesheet" href="callback.css">
 </head>
 <body>
   <main>
     <div id="root">
       <strong>Hello!</strong>
       <br>
-      <ul>
-        <li><a href="/callback-authorize">Website Based Authorization</a></li>
-        <li><a href="/pin-flow">Pin Based Authorization</a></li>
-      </ul>
+        <a href="<%= authLink %>">Click here</a> to start login flow in your application.
     </div>
+
+    <div id="auth-mode" data-mode="<%= authMode %>"></div>
   </main>
 </body>
 </html>
