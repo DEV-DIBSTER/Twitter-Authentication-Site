@@ -3,11 +3,13 @@ const Session = require('express-session');
 const Execute = require('child_process').exec;
 
 const CallbackRouter = require('./src/routes/callback.js');
-//const PinRouter = require('./src/routes/pin.js');
+const GeneralRouter = require('./src/routes/index.js');
+const PinRouter = require('./src/routes/pin.js');
 const AuthSite = ExpressJS();
 const Configuration = require('./config.json');
 
 AuthSite.set('view engine', 'ejs');
+AuthSite.use(ExpressJS.static(__dirname + '/css'));
 AuthSite.use(Session({
     secret: 'twitter-api-v2',
     resave: false,
@@ -31,7 +33,8 @@ setInterval(() => {
 }, 60 * 1000);
 
 AuthSite.use(CallbackRouter);
-//AuthSite.use(PinRouter);
+AuthSite.use(GeneralRouter);
+AuthSite.use(PinRouter);
 
 AuthSite.use((Error, Request, Response, Next) => {
     console.log(Error);
