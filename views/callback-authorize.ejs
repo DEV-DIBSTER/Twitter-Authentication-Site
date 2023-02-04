@@ -8,14 +8,15 @@
   <link rel="stylesheet" href="callback.css">
 </head>
 <body>
-  <main>
-    <div id="root">
-      <strong>Hello!</strong>
-      <br>
-        <center><a href="<%= authLink %>">Click here</a> to start login flow in your application.</center>
-    </div>
-
+    <center>
+      <div id="root">
+        <center><h1>Hello!</h1></center>
+        <br>
+        <center>
+            <a href="<%= authLink %>" id="Link">Click to Authorize</a>
+        </center>
+      </div>
+    </center>
     <div id="auth-mode" data-mode="<%= authMode %>"></div>
-  </main>
 </body>
 </html>
