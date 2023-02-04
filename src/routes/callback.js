@@ -11,7 +11,7 @@ CallbackRouter.get('/callback-authorize', AsyncWrapOrError(async (Request, Respo
 
     Request.session.oauthToken = Link.oauth_token;
     Request.session.oauthSecret = Link.oauth_token_secret;
-
+    
     Response.render('callback-authorize', { authLink: Link.url, authMode: 'callback' });
 }));
 
