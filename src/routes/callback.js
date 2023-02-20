@@ -25,8 +25,6 @@ CallbackRouter.get('/callback', AsyncWrapOrError(async (Request, Response) => {
     const verifier = Request.query.oauth_verifier;
     const SavedToken = await Request.session.oauthToken;
     const SavedSecret = await Request.session.oauthSecret;
-
-    console.log(Request.session);
     
     if (!SavedToken || !SavedSecret || SavedToken !== Token) {
         Response.status(400).render('error', { error: 'OAuth token is not known or invalid. Your request may have expire. Please renew the auth process.' });
