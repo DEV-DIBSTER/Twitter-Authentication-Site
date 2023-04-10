@@ -39,7 +39,7 @@ CallbackRouter.get('/callback', AsyncWrapOrError(async (Request, Response) => {
         accessSecret: SavedSecret
     });
     
-      // Ask for definitive access token
+      // Ask for definitive access token.
       const { accessToken, accessSecret, screenName, userId } = await TemporaryClient.login(verifier);
       // You can store & use accessToken + accessSecret to create a new client and make API calls!
     
