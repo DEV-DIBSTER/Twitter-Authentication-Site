@@ -11,9 +11,6 @@
     <div id="root">
       <strong>Hello!</strong>
       <br>
-      <% if (authMode === 'callback') { %>
-        <a href="<%= authLink %>">Click here</a> to start login flow in your application.
-      <% } %>
       <% if (authMode === 'pin') { %>
         <a id="auth-link" href="<%= authLink %>" target="_blank">Click here</a> to start login flow in your application (open in a new tab).
       <% } %>
@@ -57,9 +54,8 @@
 
         pinValidate.addEventListener('click', handler);
         pinForm.addEventListener('submit', handler);
-      }
+      };
 
-      // Send the PIN input to /validate-pin, and print the result
       async function validatePin() {
         const pinInput = document.getElementById('pin-input');
 
@@ -92,7 +88,7 @@
             <li>Username: @${screenName}</li>
           </ul>
         `;
-      }
+      };
     </script>
    <% } %>
 </body>
