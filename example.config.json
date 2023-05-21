@@ -3,5 +3,6 @@
     "SiteURL": "example.com", 
     "Port": 3000,
     "ConsumerToken": "ExampleToken",
-    "ConsumerSecret": "ExampleTokenSecret"
+    "ConsumerSecret": "ExampleTokenSecret",
+    "SessionSecret": "ExampleSessionSecret"
 }

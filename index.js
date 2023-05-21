@@ -11,7 +11,7 @@ const Configuration = require('./config.json');
 AuthSite.set('view engine', 'ejs');
 AuthSite.use(ExpressJS.static(__dirname + '/css'));
 AuthSite.use(Session({
-    secret: 'twitter-api-v2',
+    secret: Configuration.SessionSecret,
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false }
