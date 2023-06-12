@@ -10,9 +10,14 @@ GeneralRouter.get('/', AsyncWrapOrError(async (Request, Response) => {
     Response.render('index');
 }));
 
-//Uptime endpoint.
+//Online endpoint.
 GeneralRouter.get('/online', AsyncWrapOrError(async (Request, Response) => {
     Response.status(200).send('Indeed!');
+}));
+
+//Uptime endpoint.
+GeneralRouter.get('/uptime', AsyncWrapOrError(async (Request, Response) => {
+    Response.status(200).send('Work in progress');
 }));
 
 
