@@ -1,6 +1,8 @@
 const ExpressJS = require('express');
 const Session = require('express-session');
 const Execute = require('child_process').exec;
+const FaviconJS = require('serve-favicon');
+
 
 const CallbackRouter = require('./src/routes/callback.js');
 const GeneralRouter = require('./src/routes/index.js');
@@ -10,6 +12,7 @@ const Configuration = require('./config.json');
 
 AuthSite.set('view engine', 'ejs');
 AuthSite.use(ExpressJS.static(__dirname + '/css'));
+AuthSite.use(FaviconJS(__dirname + "/Assets/favicon.ico"));
 AuthSite.use(Session({
     secret: Configuration.SessionSecret,
     resave: false,
