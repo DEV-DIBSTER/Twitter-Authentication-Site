@@ -20,5 +20,14 @@ GeneralRouter.get('/uptime', AsyncWrapOrError(async (Request, Response) => {
     Response.status(200).send('Work in progress');
 }));
 
+//Uptime endpoint.
+GeneralRouter.get('/uptime', AsyncWrapOrError(async (Request, Response) => {
+    Response.status(200).send({uptime: parseInt(process.uptime())});
+}));
+
+//Fake error endpoint.
+GeneralRouter.get('/fake-error-page', AsyncWrapOrError(async (Request, Response) => {
+    Response.render('error');
+}));
 
 module.exports = GeneralRouter;

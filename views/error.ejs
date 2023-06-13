@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Encounted Unexpected Error!</title>
+    <!-- Misc Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- HTML Meta Tags -->
+    <title>Twitter Auth - Error!</title>
+
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="Twitter Authentication - DIBSTER">
+    <meta itemprop="image" content="../Assets/favicon.ico">
+
+    <!-- Facebook Meta Tags -->
+    <!-- <meta property="og:url" content="">
+    <meta property="og:type" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content=""> -->
+
+    <!-- Twitter Meta Tags -->
+    <!-- <meta name="twitter:card" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:image" content=""> -->
+
+    <!-- CSS Meta Tags -->
+    <link rel="stylesheet" href="./CSS/error.css">
 </head>
 <body>
   <main>
-    <div>
-      <% if (typeof error !== 'undefined') { %>
-        <%= error %>
-      <% } else { %>
-        We're sorry, but there's something wrong. Please check the logs.
-      <% } %>
-    </div>
-    <div style="margin-top: 2rem;">
-      <a href="/">Go home</a>
-    </div>
+    <center>
+      <h1>Please alert site Administrators of this issue!</h1>
+      <div id="root">
+        <center>
+          <h1>Unexpected error has occured!</h1>
+        </center>
+
+        <br>
+
+        <center>
+          <a href="/" id="Link">Go Back Home</a>
+        </center>
+      </div>
+    </center>
   </main>
 </body>
 </html>
