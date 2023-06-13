@@ -11,7 +11,7 @@ const AuthSite = ExpressJS();
 const Configuration = require('./config.json');
 
 AuthSite.set('view engine', 'ejs');
-AuthSite.use(ExpressJS.static(__dirname + '/css'));
+AuthSite.use(ExpressJS.static(__dirname));
 AuthSite.use(FaviconJS(__dirname + "/Assets/favicon.ico"));
 AuthSite.use(Session({
     secret: Configuration.SessionSecret,

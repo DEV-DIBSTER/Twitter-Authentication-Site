@@ -46,4 +46,14 @@ CallbackRouter.get('/callback', AsyncWrapOrError(async (Request, Response) => {
       Response.render('callback', { accessToken, accessSecret, screenName, userId });
 }));
 
+CallbackRouter.get('/pin-redirect', AsyncWrapOrError(async (Request, Response) => {
+
+    const accessToken = Request.query.accessToken;
+    const accessSecret = Request.query.accessSecret;
+    const screenName = Request.query.screenName;
+    const userId = Request.query.userId;
+
+    Response.render('callback', { accessToken, accessSecret, screenName, userId });
+}));
+
 module.exports = CallbackRouter;

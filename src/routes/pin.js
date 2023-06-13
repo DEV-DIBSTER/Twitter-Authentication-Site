@@ -12,7 +12,7 @@ PinRouter.get('/pin-flow', AsyncWrapOrError(async (Request, Response) => {
     Request.session.oauthToken = Link.oauth_token;
     Request.session.oauthSecret = Link.oauth_token_secret;
 
-    Response.render('pin', { authLink: Link.url, authMode: 'pin' });
+    Response.render('pin', { authLink: Link.url });
 }));
 
 PinRouter.post('/validate-pin', require('express').json(), AsyncWrapOrError(async (Request, Response) => {
