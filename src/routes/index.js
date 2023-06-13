@@ -7,7 +7,7 @@ const GeneralRouter = Router();
 
 //This will show a HTML page with two options.
 GeneralRouter.get('/', AsyncWrapOrError(async (Request, Response) => {
-    Response.render('index');
+    Response.render('main');
 }));
 
 //Online endpoint.
