@@ -10,11 +10,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Facebook, Instagram, Linkedin, Moon, Send, Sun, Twitter } from "lucide-react";
+import { Linkedin, Moon, Sun, Twitter } from "lucide-react";
 
 function Footerdemo() {
-  const [isDarkMode, setIsDarkMode] = React.useState(true)
-  const [isChatOpen, setIsChatOpen] = React.useState(false)
+  const [isDarkMode, setIsDarkMode] = React.useState(true);
 
   React.useEffect(() => {
     if (isDarkMode) {

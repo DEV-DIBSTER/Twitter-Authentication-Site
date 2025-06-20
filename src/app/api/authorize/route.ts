@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import RequestClient from '@/lib/client';
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   try {
 
     console.log(`${process.env.SECURE_ACCESS == "true" ? process.env.SECURE_SITE_CALLBACK : process.env.UNSECURE_SITE_CALLBACK}`);

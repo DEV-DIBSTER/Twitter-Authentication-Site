@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import RequestClient from '@/lib/client';
 import { TwitterApi } from 'twitter-api-v2';
 import { cookies } from 'next/headers';
 
