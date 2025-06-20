@@ -1,8 +1,0 @@
-{
-    "Secure": true,
-    "SiteURL": "example.com", 
-    "Port": 3000,
-    "ConsumerToken": "ExampleToken",
-    "ConsumerSecret": "ExampleTokenSecret",
-    "SessionSecret": "ExampleSessionSecret"
-}

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Footer } from "@/components/footer";
+
+import { Footerdemo } from "@/components/ui/footer-section";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Twitter Authentication",
-  description: "Authorize Twitter accounts to a third party software.",
+  title: "X Authentication Site",
+  description: "Built on top of Vercel's Next.js platform."
 };
 
 export default function RootLayout({
@@ -25,19 +25,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="flex-1 flex items-center justify-center">{children}</div>
-          <Footer />
-        </ThemeProvider>
+        {children}
+
+        <div className="block">
+          <Footerdemo />
+        </div>
       </body>
     </html>
   );
