@@ -3,9 +3,6 @@ import RequestClient from '@/lib/client';
 
 export async function GET() {
   try {
-
-    console.log(`${process.env.SECURE_ACCESS == "true" ? process.env.SECURE_SITE_CALLBACK : process.env.UNSECURE_SITE_CALLBACK}`);
-
     // Generates the Authentication Link.
     const AuthLink = await RequestClient.generateAuthLink(`${process.env.SECURE_ACCESS == "true" ? process.env.SECURE_SITE_CALLBACK : process.env.UNSECURE_SITE_CALLBACK}`);
 

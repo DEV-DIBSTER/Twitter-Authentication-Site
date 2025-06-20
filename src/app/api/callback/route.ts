@@ -10,9 +10,10 @@ export async function GET(req: NextRequest) {
     const oauth_verifier = searchParams.get('oauth_verifier');
     const denied = searchParams.get('denied');
 
+    const Link = (process.env.SECURE_ACCESS == "true" ? process.env.SECURE_SITE_CALLBACK : process.env.UNSECURE_SITE_CALLBACK)?.replace("/api/callback", "");
+
     if (denied) {
-      console.log('Authorization denied');
-      return NextResponse.redirect('http://127.0.0.1:3000/error?message=Authorization%20denied', 302);
+      return NextResponse.redirect(Link + '/error?message=Authorization%20denied', 302);
     }
 
     // Get oauth_token_secret from cookie
@@ -53,7 +54,7 @@ export async function GET(req: NextRequest) {
     await (await cookies()).delete('oauth_token_secret');
 
     // Redirect the user to a success page with the user's information
-    const redirectUrl = new URL('http://127.0.0.1:3000/success');
+    const redirectUrl = new URL(Link + '/success');
     redirectUrl.searchParams.set('username', user.data.username);
     redirectUrl.searchParams.set('profile_image_url', user.data.profile_image_url || ''); // Handle potential null value
     redirectUrl.searchParams.set('accessToken', accessToken);
