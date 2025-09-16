@@ -10,7 +10,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Linkedin, Moon, Sun, Twitter } from "lucide-react";
+import { Linkedin, Moon, Sun, Twitter, X } from "lucide-react";
 
 function Footerdemo() {
   const [isDarkMode, setIsDarkMode] = React.useState(true);
@@ -31,13 +31,13 @@ function Footerdemo() {
           <div className="text-center">
             <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
             <nav className="space-y-2 text-sm">
-              <a href="#" className="block transition-colors hover:text-primary">
+              <a href="/" className="block transition-colors hover:text-primary">
                 Home
               </a>
-              <a href="#" className="block transition-colors hover:text-primary">
+              <a href="https://dibster.dev" className="block transition-colors hover:text-primary">
                 About Us
               </a>
-              <a href="#" className="block transition-colors hover:text-primary">
+              <a href="mailto:me@dibster.dev" className="block transition-colors hover:text-primary">
                 Contact
               </a>
             </nav>
@@ -57,12 +57,12 @@ function Footerdemo() {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button variant="outline" size="icon" className="rounded-full">
-                      <Twitter className="h-4 w-4" />
-                      <span className="sr-only">Twitter</span>
+                      <X className="h-4 w-4" />
+                      <span className="sr-only">X</span>
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Follow us on Twitter</p>
+                    <p>Follow us on X</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -89,7 +89,7 @@ function Footerdemo() {
               />
               <Moon className="h-4 w-4" />
               <Label htmlFor="dark-mode" className="sr-only">
-                Toggle dark mode
+                Toggle Dark Mode
               </Label>
             </div>
           </div>
