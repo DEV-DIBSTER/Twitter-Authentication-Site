@@ -10,7 +10,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Linkedin, Moon, Sun, Twitter, X } from "lucide-react";
+import { Linkedin, Moon, Sun, X } from "lucide-react";
+import Link from 'next/link';
 
 function Footerdemo() {
   const [isDarkMode, setIsDarkMode] = React.useState(true);
@@ -31,9 +32,7 @@ function Footerdemo() {
           <div className="text-center">
             <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
             <nav className="space-y-2 text-sm">
-              <a href="/" className="block transition-colors hover:text-primary">
-                Home
-              </a>
+              <Link href="/about" className="block transition-colors hover:text-primary">Home</Link>
               <a href="https://dibster.dev" className="block transition-colors hover:text-primary">
                 About Us
               </a>
