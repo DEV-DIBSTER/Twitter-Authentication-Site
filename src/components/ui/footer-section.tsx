@@ -10,7 +10,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Linkedin, Moon, Sun, X } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
+import { SiLinkedin, SiX } from "@icons-pack/react-simple-icons";
 import Link from 'next/link';
 
 function Footerdemo() {
@@ -56,7 +57,7 @@ function Footerdemo() {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button variant="outline" size="icon" className="rounded-full">
-                      <X className="h-4 w-4" />
+                      <SiX className="h-4 w-4" />
                       <span className="sr-only">X</span>
                     </Button>
                   </TooltipTrigger>
@@ -69,7 +70,7 @@ function Footerdemo() {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button variant="outline" size="icon" className="rounded-full">
-                      <Linkedin className="h-4 w-4" />
+                      <SiLinkedin className="h-4 w-4" />
                       <span className="sr-only">LinkedIn</span>
                     </Button>
                   </TooltipTrigger>
