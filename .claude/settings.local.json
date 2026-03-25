@@ -2,7 +2,13 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:lucide.dev)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebSearch",
+      "WebFetch(domain:cdn.simpleicons.org)",
+      "WebFetch(domain:simpleicons.org)",
+      "Bash(xargs grep:*)"
     ]
   }
 }
