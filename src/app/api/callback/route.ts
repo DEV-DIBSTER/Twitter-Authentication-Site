@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { TwitterApi } from 'twitter-api-v2';
 import { cookies } from 'next/headers';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: NextRequest) {
   try {
     // Get query parameters
@@ -17,7 +19,8 @@ export async function GET(req: NextRequest) {
     }
 
     // Get oauth_token_secret from cookie
-    const oauth_token_secret = (await (await cookies()).get('oauth_token_secret'))?.value;
+    const cookieStore = await cookies();
+    const oauth_token_secret = cookieStore.get('oauth_token_secret')?.value;
 
     if (!oauth_token || !oauth_verifier || !oauth_token_secret) {
       console.log('Missing parameters', { oauth_token, oauth_verifier, oauth_token_secret });
@@ -50,8 +53,8 @@ export async function GET(req: NextRequest) {
     const user = await userClient.v2.me({ "user.fields": ['profile_image_url', 'username'] });
 
     // Clear cookies
-    await (await cookies()).delete('oauth_token');
-    await (await cookies()).delete('oauth_token_secret');
+    cookieStore.delete('oauth_token');
+    cookieStore.delete('oauth_token_secret');
 
     // Redirect the user to a success page with the user's information
     const redirectUrl = new URL(Link + '/success');

@@ -3,11 +3,12 @@
     "rangeStrategy": "bump",
     "separateMajorMinor": true,
     "separateMinorPatch": false,
+    "minimumReleaseAge": "7 days",
     "packageRules": [
         {
             "groupName": "all minor and patch dependencies",
             "groupSlug": "all-minor-patch",
-            "matchPackagePatterns": [
+            "matchPackageNames": [
                 "*"
             ],
             "matchUpdateTypes": [
@@ -17,7 +18,7 @@
             "assigneesFromCodeOwners": true
         },
         {
-            "matchPackagePatterns": [
+            "matchPackageNames": [
                 "*"
             ],
             "matchUpdateTypes": [
@@ -25,6 +26,29 @@
             ],
             "groupName": null,
             "assigneesFromCodeOwners": true
+        },
+        {
+            "matchPackageNames": [
+                "typescript"
+            ],
+            "allowedVersions": "<7.0.0"
+        },
+        {
+            "matchPackageNames": [
+                "eslint"
+            ],
+            "allowedVersions": "<10.0.0"
+        },
+        {
+            "matchPackageNames": [
+                "typescript",
+                "eslint"
+            ],
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "enabled": false
         }
     ]
 }
+

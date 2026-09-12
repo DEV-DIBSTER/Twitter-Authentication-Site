@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import RequestClient from '@/lib/client';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     // Generates the Authentication Link.

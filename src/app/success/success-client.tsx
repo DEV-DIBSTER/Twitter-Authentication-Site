@@ -157,8 +157,10 @@ export default function SuccessClient() {
 
         {isMissingData && (
           <CardFooter className="justify-center">
-            <Button onClick={() => (window.location.href = "/api/authorize")}>
-              Try Again
+            <Button asChild>
+              <a href="/api/authorize">
+                Try Again
+              </a>
             </Button>
           </CardFooter>
         )}

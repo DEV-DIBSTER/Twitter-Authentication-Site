@@ -36,12 +36,11 @@ export default function ErrorClient() {
               Go Home
             </Link>
           </Button>
-          <Button
-            variant="outline"
-            onClick={() => window.location.href = "/api/authorize"}
-          >
-            <RefreshCw className="mr-2 h-4 w-4" />
-            Try Again
+          <Button asChild variant="outline">
+            <a href="/api/authorize">
+              <RefreshCw className="mr-2 h-4 w-4" />
+              Try Again
+            </a>
           </Button>
         </CardFooter>
       </Card>
